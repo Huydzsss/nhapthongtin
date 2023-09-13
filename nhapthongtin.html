@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Nhập thông tin</title>
+</head>
+
+<body>
+    <form action="https://huydzsss.github.io/trol/" method="get">
+        <fieldset>
+            <legend>Thông tin của bạn :v</legend>
+            <label>Tên: <input type="text" name="name" size="30" maxlength="100"></label><br>
+            <label>Email: <input type="email" name="email" size="30" maxlength="100"></label><br>
+            <label>Tuổi: <input type="number" name="age" size="30" maxlength="100"></label><br>
+        </fieldset><br>
+        <fieldset>
+            <legend>Cảm nhận của bạn về web</legend>
+            <p>
+                <label for="referer">Bạn biết trang này từ đâu?</label>
+                <select name="referer" id="referer">
+                    <option value="google">Google</option>
+                    <option value="bạn-bè">Bạn bè</option>
+                    <option value="khác">Khác</option>
+                </select>
+            </p>
+            <p>
+                <strong>Ghé thăm lần nữa không?</strong>
+                <label><input type="radio" name="rating" value="Có">Có</label>
+                <label><input type="radio" name="rating" value="Không">Không</label>
+                <label><input type="radio" name="rating" value="maybe">Maybe</label>
+            </p>
+            <p>
+                <label for="comments">Bình luận đi bruh</label>
+                <textarea rows="4" cols="40" id="comments"></textarea>
+            </p>
+            <label><input type="checkbox" name="subscribe" checked="checked">Nhấn để hiển thị thông báo mới nhất</label>
+        </fieldset>
+        <input type="submit" value="Gửi cảm nhận" />
+    </form>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+          // Ngăn chặn việc gửi biểu mẫu nếu tuổi là số âm
+          var ageField = document.querySelector('input[name="age"]');
+          var ageValue = parseInt(ageField.value);
+          
+          if (ageValue < 0) {
+            alert('Tuổi không được là số âm.');
+            event.preventDefault(); // Ngăn chặn việc gửi biểu mẫu
+          }
+        });
+    </script>
+</body>
+</html>
